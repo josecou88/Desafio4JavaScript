@@ -32,3 +32,28 @@ productos.forEach ((producto)=> {
     cardContainerQuery.append(nuevoDiv)
 })
 
+// evento click
+
+const botonClick = document.querySelector ('#botonClick')
+console.log(botonClick);
+
+const mostrarMensaje = () => {
+    console.log('Confirmaste la compra');
+    alert ('Confirmaste la compra')
+}
+
+botonClick.addEventListener ('click', mostrarMensaje)
+
+
+
+// buscador
+
+const searchBar = document.querySelector ('#search')
+
+const search = () => {
+    const query = searchBar.value
+    const searchResult = productos.filter ((producto)=> producto.producto.toLowerCase().includes(query))
+    console.log(searchResult);
+}
+
+searchBar.addEventListener('input', search)
