@@ -56,3 +56,58 @@ body {
 #botonClick {
     margin: 20px;
 }
+
+
+/* Buscador */
+
+.menu {
+    
+    display: flex;
+    justify-content: center;
+    margin: 20px
+}
+
+.menuList {
+   
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+.searchBox input, .searchButton {
+    height: 100%;
+    width: 40%;
+    background-color: rgb(218, 218, 218);
+    border: none;
+    border-radius: 5px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding-left: 30%;
+}
+
+.searchButton {
+    height: 100%;
+    width: 19%;
+    margin: 0 3%;
+    border: none;
+    border-radius: 5px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.menuTabImg {
+    width: 50px;
+    margin-right: 5px;
+}
+
+.menuTabImg img {
+    width: 100%;
+}
+
+.menuTabText {
+    font-size: 16px;
+    font-weight: 500;
+}

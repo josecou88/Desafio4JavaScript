@@ -7,20 +7,37 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
+
 <body>
     <h1>Desafío Numero 4</h1>
     <img src="./img/barulogoVerde-removebg-preview.png" width=" 170vw" alt="">
     <h2>Interactuar con HTML (DOM)</h2>
     <h3>José Courel</h3>
-    <div class="buscador1">
+
+    <!-- <div class="buscador1">
         <input class="buscador" type="text" name="search" id="search">
+    </div> -->
+
+    <div class="menu">
+        <div class="searchBox">
+            <input type="text" name="searchBar" id="searchBar">
+            <button id="searchButton" class="searchButton" title="Buscar"> &#128270; </button>
+        </div>
+        <div id="Productos" class="Productos" >
+            <!-- Codigo Inyectado desde JS -->
+        </div>
     </div>
+
     <div id="cardContainer" class="cardContainer">
         
     </div>
    
     <div>
         <button id="botonClick"> confirmar compra </button>
+    </div>
+    <div class="carrito">
+        <h2>Carrito</h2>
+
     </div>
     <script src="./JS/app.js"></script>
 </body>
