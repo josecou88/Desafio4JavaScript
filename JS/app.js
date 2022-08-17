@@ -1,3 +1,6 @@
+
+let carritoDeCompras = []
+
 //objeto const
 
 class Producto {
@@ -18,35 +21,44 @@ class Producto {
 const productos = [producto1, producto2, producto3]
 
 const cardContainerQuery = document.querySelector("#cardContainer")
+const cardCTA = document.querySelector('.cardCTA')
 
-productos.forEach ((producto)=> {
-    const nuevoDiv = document.createElement("div")
-    nuevoDiv.innerHTML= `
-    <h3 class="cardTitle">${producto.producto}</h3>
-    <img src="${producto.imgSrc}" class="cardImg">
-    <p class="cardDesc">${producto.descripcion}</p>
-    <span class="cardPrice">$${producto.precio}</span>
-    <button class="butonCTA">Agregar al carrito</button>`
-    nuevoDiv.className = "card"
-    console.log(nuevoDiv)
-    cardContainerQuery.append(nuevoDiv)
-})
+//carrito
+
+const carritoContainer = document.querySelector('.carritoContainer')
+
+
+// fin carrito
+const renderizarProductos = (arrayProductos) =>{
+    cardContainerQuery.innerHTML = ""
+    arrayProductos.forEach ((producto)=> {
+        const nuevoDiv = document.createElement("div")
+        nuevoDiv.innerHTML= `
+        <h3 class="cardTitle">${producto.producto}</h3>
+        <img src="${producto.imgSrc}" class="cardImg">
+        <p class="cardDesc">${producto.descripcion}</p>
+        <span class="cardPrice">$${producto.precio}</span>
+        <button class="butonCTA" data-id="${producto.producto}">Agregar al carrito</button>`
+        nuevoDiv.className = "card"
+        cardContainerQuery.append(nuevoDiv)
+    })
+    
+}
+
+renderizarProductos(productos)
+
 
 const buscarProducto = () => {
-    // const query = searchBar.value.toLowerCase()
-    // const arrayResultados = productos.filter((productos) => pokemon.name.toLowerCase().includes(query))
-    // renderizarListaPokemon(arrayResultados)
-    const query = searchBar.value
+
+    const query = searchBar.value.toLowerCase()
     const arrayResultados = productos.filter((comida)=> comida.producto.includes(query))
-    console.log(arrayResultados);
+    renderizarProductos(arrayResultados);
 }
 
 // evento click
 
 const botonClick = document.querySelector ('#botonClick')
-console.log(botonClick);
-
-
+;
 
 const mostrarMensaje = () => {
     console.log('Confirmaste la compra');
@@ -54,20 +66,6 @@ const mostrarMensaje = () => {
 }
 
 botonClick.addEventListener ('click', mostrarMensaje)
-
-
-
-// buscador
-
-// const searchBar = document.querySelector ('#search')
-
-// const search = () => {
-//     const query = searchBar.value
-//     const searchResult = productos.filter ((producto)=> producto.producto.toLowerCase().includes(query))
-//     console.log(searchResult);
-// }
-
-// searchBar.addEventListener('input', search)
 
 
 //buscador
@@ -79,3 +77,20 @@ const searchButton = document.querySelector('#searchButton')
 
 searchButton.addEventListener('click', buscarProducto)
 searchBar.addEventListener('input', buscarProducto)
+
+
+//funcion agrear producto
+const butonCTA = document.querySelectorAll('.butonCTA')
+
+const agregarProductoAlCarrito = (e)=> {
+    const producto = e.target.getAttribute("data-id")
+    carritoDeCompras.push(producto)
+    localStorage.setItem("carritoDeCompras", JSON.stringify(carritoDeCompras))
+    const carritoDeComprasGuardado = JSON.parse(localStorage.getItem("carritoDeCompras"))
+    console.log(carritoDeComprasGuardado);
+}
+
+butonCTA.forEach((boton)=>{
+    boton.addEventListener('click', agregarProductoAlCarrito)
+})
+
