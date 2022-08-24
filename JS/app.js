@@ -57,15 +57,15 @@ const buscarProducto = () => {
 
 // evento click
 
-const botonClick = document.querySelector ('#botonClick')
-;
+// const botonClick = document.querySelector ('#botonClick')
+// ;
 
-const mostrarMensaje = () => {
-    console.log('Confirmaste la compra');
-    alert ('Confirmaste la compra')
-}
+// const mostrarMensaje = () => {
+//     console.log('Confirmaste la compra');
+//     alert ('Confirmaste la compra')
+// }
 
-botonClick.addEventListener ('click', mostrarMensaje)
+// botonClick.addEventListener ('click', mostrarMensaje)
 
 
 //buscador
