@@ -86,11 +86,48 @@ const agregarProductoAlCarrito = (e)=> {
     const producto = e.target.getAttribute("data-id")
     carritoDeCompras.push(producto)
     localStorage.setItem("carritoDeCompras", JSON.stringify(carritoDeCompras))
-    const carritoDeComprasGuardado = JSON.parse(localStorage.getItem("carritoDeCompras"))
+    const carritoDeComprasGuardado = JSON.parse(localStorage.getItem("carritoDeCompras")) 
     console.log(carritoDeComprasGuardado);
 }
 
 butonCTA.forEach((boton)=>{
     boton.addEventListener('click', agregarProductoAlCarrito)
 })
+
+//Boton sweet alert
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
+  document.querySelector('#botonConfirmar').addEventListener ('click', ()=> {
+    Swal.fire({
+        title: 'Deseas confirmar la compra?',
+        text: "No podras revertir si confirmas!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, confirmar compra!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Compra confirmada!',
+            'Tu orden esta en proceso!',
+            'success'
+          )
+        }
+      })
+ })
+
+
+ //Botón Tostify
 

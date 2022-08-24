@@ -111,3 +111,26 @@ body {
     font-size: 16px;
     font-weight: 500;
 }
+
+#botonConfirmar {
+    background: linear-gradient(to right, #319bb6 40%, #85916b);
+    border-radius: 3px;
+    border: none;
+    padding: 5px;
+    margin: 20px;
+    font-size: large;
+    font-weight:bolder;
+    color: rgb(241, 229, 229);
+    text-shadow:#292e30;
+    box-shadow: 1px 1px 2px #333;
+    
+}
+
+
+.confirmame :hover {
+    zoom: 120%;
+    cursor: pointer;
+}
+
+
+
